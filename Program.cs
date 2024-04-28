@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Добавление зависимости 
 builder.Services.AddDbContext<ApplicationDataContext>(opt=> opt.UseInMemoryDatabase("InMem"));
 builder.Services.AddScoped<IPlatformRep, PlatformRep>();
